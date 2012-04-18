@@ -1,0 +1,14 @@
+*.exe
+*.lib
+*.dll
+CMakeFiles
+CMakeCache.txt
+*.swp
+*.log
+*.pyd
+*.pyc
+Makefile
+Session.vim
+version.h
+*_wrap.cxx
+cmake_install.cmake
