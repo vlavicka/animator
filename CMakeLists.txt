@@ -18,10 +18,11 @@ FIND_PACKAGE(PythonLibs)
 include_directories(${PYTHON_INCLUDE_PATH})
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}")
 
-set(CMAKE_SWIG_FLAGS "")
-set_source_files_properties(test.i PROPERTIES CPLUSPLUS ON)
-set_source_files_properties(test.i PROPERTIES SWIG_FLAGS "-includeall")
-swig_add_module(test python test.i test.cxx)
-swig_link_libraries(test ${PYTHON_LIBRARIES})
 
-add_executable(test test.cxx src/model/layer.cxx)
+set(CMAKE_SWIG_FLAGS "-v")
+set_source_files_properties(animator.i PROPERTIES CPLUSPLUS ON)
+set_source_files_properties(animator.i PROPERTIES SWIG_FLAGS "-includeall")
+swig_add_module(animator python animator.cxx animator.i)
+swig_link_libraries(animator ${PYTHON_LIBRARIES})
+
+#add_executable(mainapp animator.cxx src/model/layer.cxx)

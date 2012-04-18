@@ -10,5 +10,6 @@ CMakeCache.txt
 Makefile
 Session.vim
 version.h
-*_wrap.cxx
+*_wrap.c??
 cmake_install.cmake
+*.o

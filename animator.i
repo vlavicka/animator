@@ -1,7 +1,6 @@
-/* test.i */
-%module test
+%module animator
 %{
-extern void myprint();
+extern int myvalue();
 %}
 
-extern void myprint();
+extern int myvalue();

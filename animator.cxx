@@ -1,4 +1,4 @@
-#include <iostream>
+//#include <iostream>
 
 //#include "src/model/layer.h"
 
@@ -9,7 +9,7 @@ int main()
     return 0;
 }
 
-void myprint()
+int myvalue()
 {
-    std::cout << "Hello, World!\n";
+    return 1;
 }
