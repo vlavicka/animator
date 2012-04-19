@@ -1,14 +1,21 @@
 @echo off
 setlocal
 
-set PATH=c:\MinGW\bin;c:\develop\CMake_2.8\bin;c:\develop\swigwin-2.0.4;%PATH%
+call env.cmd
 
 cmake -G "MinGW Makefiles" --warn-uninitialized --warn-unused-vars -Wno-dev
 mingw32-make 
+rem mingw32-make test
 
-python -c "import animator; print animator.myvalue()"
-
-mainapp.exe
+echo.
+echo -----------------------------------------------------------------------
+echo R U N N I N G   p y t h o n   r e g r e s s i o n   t e s t s
+echo -----------------------------------------------------------------------
+echo.
+pushd py
+call regr.cmd
+@echo off
+popd
 
 endlocal
 @echo on

@@ -5,12 +5,8 @@ set (Animator_VERSION_MAJOR 0)
 set (Animator_VERSION_MINOR 1)
 
 #------------------------------------------------------------
-# BUILD
-
-configure_file (
-    "${PROJECT_SOURCE_DIR}/version.h.in"
-    "${PROJECT_BINARY_DIR}/version.h")
-include_directories("${PROJECT_BINARY_DIR}")
+# BUILD SWIG MODULE
+#------------------------------------------------------------
 
 FIND_PACKAGE(SWIG REQUIRED)
 INCLUDE(${SWIG_USE_FILE})
@@ -18,11 +14,33 @@ FIND_PACKAGE(PythonLibs)
 include_directories(${PYTHON_INCLUDE_PATH})
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}")
 
-
 set(CMAKE_SWIG_FLAGS "-v")
 set_source_files_properties(animator.i PROPERTIES CPLUSPLUS ON)
 set_source_files_properties(animator.i PROPERTIES SWIG_FLAGS "-includeall")
-swig_add_module(animator python animator.cxx animator.i)
-swig_link_libraries(animator ${PYTHON_LIBRARIES})
+swig_add_module(animatorapi python animator.cxx code/model/layer.cxx animator.i)
+swig_link_libraries(animatorapi ${PYTHON_LIBRARIES})
 
-#add_executable(mainapp animator.cxx src/model/layer.cxx)
+
+#------------------------------------------------------------
+# BUILD
+#------------------------------------------------------------
+
+configure_file (
+    "${PROJECT_SOURCE_DIR}/version.h.in"
+    "${PROJECT_BINARY_DIR}/version.h")
+include_directories("${PROJECT_BINARY_DIR}")
+
+add_library(Model code/model/layer.cxx)
+add_executable(animator animator.cxx)
+target_link_libraries(animator Model)
+
+
+#------------------------------------------------------------
+# TESTING
+#------------------------------------------------------------
+
+
+enable_testing()
+add_test(AnimatorRun animator)
+set_tests_properties(AnimatorRun
+    PROPERTIES PASS_REGULAR_EXPRESSION "Hello, World!")

@@ -1,6 +1,8 @@
-%module animator
+%module animatorapi
 %{
-extern int myvalue();
+extern char * swigtest();
+#include "code/model/layer.h"
 %}
 
-extern int myvalue();
+extern char * swigtest();
+#include "code/model/layer.h"
