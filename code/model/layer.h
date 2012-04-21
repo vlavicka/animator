@@ -1,3 +1,6 @@
+#ifndef ANIMATOR_MODEL_LAYER_H
+#define ANIMATOR_MODEL_LAYER_H
+
 class LayerBase
 {
     public:
@@ -11,3 +14,5 @@ class LayerBitmap : public LayerBase
     int bitDepth;
     LayerBitmap(int number);
 };
+
+#endif // ANIMATOR_MODEL_LAYER_H
