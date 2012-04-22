@@ -1,8 +1,9 @@
 cmake_minimum_required (VERSION 2.4)
 project (Animator)
 
-set (Animator_VERSION_MAJOR 0)
-set (Animator_VERSION_MINOR 1)
+set (ANIMATOR_VERSION_MAJOR 0)
+set (ANIMATOR_VERSION_MINOR 1)
+set (ANIMATOR_VERSION_MICRO 0)
 
 #------------------------------------------------------------
 # BUILD SWIG MODULE
