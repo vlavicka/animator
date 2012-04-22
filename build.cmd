@@ -4,10 +4,12 @@ setlocal
 call env.cmd
 if not exist build mkdir build
 pushd build
-cmake -G "MinGW Makefiles" --warn-uninitialized --warn-unused-vars -Wno-dev ..
+cmake -G "MinGW Makefiles" -D ANIMATOR_DEBUG:STRING=debug --warn-uninitialized --warn-unused-vars -Wno-dev ..
 mingw32-make 
-rem mingw32-make test
+set BUILD_ERROR=%ERRORLEVEL%
 popd
+
+if %BUILD_ERROR% NEQ 0 goto error
 
 if not "%1" == "notest" (
     echo.
@@ -21,5 +23,11 @@ if not "%1" == "notest" (
     popd
 )
 
+goto end
+
+:error
+echo "Error while building!"
+
+:end
 endlocal
 @echo on

@@ -39,7 +39,6 @@ class TestAniModelLayer(unittest.TestCase):
         self.assertEqual(400, self.layer.getSize().getHeight())
 
 
-
 if __name__ == "__main__":
     def get_tests():
         testcases = []

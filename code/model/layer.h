@@ -3,20 +3,6 @@
 
 using namespace std;
 
-
-class Size {
-    int width;
-    int height;
-public:
-    Size() : width(0), height(0) {};
-    Size(int w, int h) : width(w), height(h) {};
-    int getWidth() { return this->width; };
-    void setWidth(int w) { this->width = w; };
-    int getHeight() { return this->height; };
-    void setHeight(int h) { this->height = h; };
-    void set(int w, int h) { this->width = w; this->height = h; };
-};
-
 class LayerBase {
     string name;
 
