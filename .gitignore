@@ -16,4 +16,6 @@ cmake_install.cmake
 Testing
 build
 _*
+*-d.png
+*-g.png
 tools
