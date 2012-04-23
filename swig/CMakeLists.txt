@@ -2,6 +2,8 @@
 # BUILD SWIG MODULE
 #------------------------------------------------------------
 
+add_definitions(-DUSESWIG)
+
 FIND_PACKAGE(SWIG REQUIRED)
 INCLUDE(${SWIG_USE_FILE})
 FIND_PACKAGE(PythonLibs)

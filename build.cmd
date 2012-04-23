@@ -5,9 +5,11 @@ call env.cmd
 if not exist build mkdir build
 pushd build
 cmake -G "MinGW Makefiles" -D ANIMATOR_DEBUG:STRING=debug --warn-uninitialized --warn-unused-vars -Wno-dev ..
-mingw32-make 
+mingw32-make
 set BUILD_ERROR=%ERRORLEVEL%
+mingw32-make test
 popd
+
 
 if %BUILD_ERROR% NEQ 0 goto error
 

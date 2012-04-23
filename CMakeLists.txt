@@ -8,6 +8,7 @@ set (ANIMATOR_VERSION_MINOR 1)
 set (ANIMATOR_VERSION_MICRO 0)
 
 add_subdirectory("${PROJECT_SOURCE_DIR}/swig")
+add_subdirectory("${PROJECT_SOURCE_DIR}/code/model")
 
 #------------------------------------------------------------
 # BUILD
@@ -28,7 +29,6 @@ target_link_libraries(animator Model)
 #------------------------------------------------------------
 
 
-enable_testing()
+#enable_testing()
 add_test(AnimatorRun animator)
-set_tests_properties(AnimatorRun
-    PROPERTIES PASS_REGULAR_EXPRESSION "Hello, World!")
+set_tests_properties(AnimatorRun PROPERTIES PASS_REGULAR_EXPRESSION "Hello, World!")

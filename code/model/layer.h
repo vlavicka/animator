@@ -21,7 +21,7 @@ public:
     LayerBitmap(string name);
     LayerBitmap(string name, int width, int height);
     int getBitDepth() { return this->bitDepth; };
-    Size * getSize() { return &this->size; };
+    Size& getSize() { return this->size; };
 };
 
 #endif // ANIMATOR_MODEL_LAYER_H

@@ -6,6 +6,14 @@ using namespace std;
 #include "size.h"
 #include "layer.h"
 
+#ifndef USESWIG
+#include <iostream>
+int main()
+{
+    return 0;
+}
+#endif
+
 LayerBase::LayerBase(string name) 
     : name(name) 
 {
