@@ -1,7 +1,11 @@
 #ifndef ANIMATOR_MODEL_LAYER_H
 #define ANIMATOR_MODEL_LAYER_H
 
+#include "size.h"
+#include <string>
+
 using namespace std;
+
 
 class LayerBase {
     string name;
